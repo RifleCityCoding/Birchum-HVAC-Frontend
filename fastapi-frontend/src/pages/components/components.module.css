@@ -1,0 +1,15 @@
+.header {
+    background-color: #2b0446;
+    height: 320px;
+    color: white;
+    display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.navLink {
+    color: white;
+    margin-left: 20px;
+}
+.logo {
+    margin-right: 100px;
+}
