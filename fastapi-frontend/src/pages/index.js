@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react'
 import { useGlobalState } from '../context/GlobalState';
 import { useRouter } from 'next/navigation';
@@ -6,6 +5,8 @@ import authService from '../services/auth.service';
 import { jwtDecode } from "jwt-decode";
 import styles from '../styles/home.module.css';
 import Link from 'next/link';
+import "bootstrap/dist/css/bootstrap.min.css"
+import Header from "./components/MainHeader"
 
 export default function Home() {
 
@@ -34,9 +35,16 @@ export default function Home() {
 
   return (
     <>
-      <main className={`${styles.main}`}>
+      <main>
+      <div className="Container">
+        <div className="Row">
+          <div className="Col">
+            <Header />
+          </div>
+        </div>
+      </div>
 
-        <div className={styles.grid}>
+        {/* <div className={styles.grid}>
         {state.user ? (
             <li className="nav-item">
               <Link href="/" className={styles.logout} onClick={handleLogout}>Logout</Link>
@@ -46,7 +54,8 @@ export default function Home() {
               <Link href="/login">Login</Link>
             </li>
           )}
-        </div>
+        </div> */}
+
       </main>
     </>
   )
