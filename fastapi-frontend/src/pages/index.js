@@ -3,10 +3,18 @@ import { useGlobalState } from '../context/GlobalState';
 import { useRouter } from 'next/navigation';
 import authService from '../services/auth.service';
 import { jwtDecode } from "jwt-decode";
-import styles from '../styles/home.module.css';
 import Link from 'next/link';
 import "bootstrap/dist/css/bootstrap.min.css"
 import Header from "./components/MainHeader"
+import styles from "./components/components.module.css";
+import { Josefin_Sans } from 'next/font/google'
+
+
+const josefin = Josefin_Sans({
+  weight: '400',
+  subsets: ['latin']
+  
+})
 
 export default function Home() {
 
@@ -34,13 +42,25 @@ export default function Home() {
   };
 
   return (
-    <>
-      <main>
-      
-          
+    <main  className={josefin.className}>
             <Header />
+              
           
-        
+      <div
+      style={{
+      backgroundImage: `url("./HVACBackground.jpeg")`,
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
+      backgroundPosition: "center center",
+      width: "100vw",
+      height: "100vh",
+    }}
+  >
+    {/* Rest of content */}
+    <div>
+      <h3>Text</h3>
+    </div>
+  </div>
       
 
         {/* <div className={styles.grid}>
@@ -55,7 +75,6 @@ export default function Home() {
           )}
         </div> */}
 
-      </main>
-    </>
+    </main>
   )
 }

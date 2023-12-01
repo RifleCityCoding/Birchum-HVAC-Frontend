@@ -1,15 +1,28 @@
+
 .header {
-    background-color: #2b0446;
+    background-color: #a7dbfa;
     color: white;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 400px;
-}
-.navLink {
+    align-items: center;
+    height: 175px;
+  }
+  
+ 
+  .navbar {
+    justify-content: left;
     color: white;
-    margin-left: 20px;
-}
-.logo {
-    margin-right: 150px;
-}
+    margin-right: 0;
+    margin-left: 0;
+    padding: 0%;
+    margin-top: 90px;
+  }
+  
+  .logo {
+    margin-right:-14px !important;
+    margin-left: 0;
+  }
+  .navLink {
+    color: #8952FD;
+    font-size: 24px;
+    min-width: 200px;
+  }
