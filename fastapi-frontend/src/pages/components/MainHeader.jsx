@@ -5,23 +5,25 @@ import Image from 'next/image';
 
 const Header = () => {
   return (
-    <Navbar className={styles.header}>
+    <Navbar className={styles.header} expand="lg">
       <Container>
-        {/* Logo */} 
+        {/* Logo */}
         <Navbar.Brand href="#home" className={styles['brand-logo']}>
           <Image
             src="/logo.png"
-            height={320}
-            width={400}
+            height={80}
+            width={100}
             className="d-inline-block align-top"
             alt="Your Logo"
           />
         </Navbar.Brand>
 
-        {/* Nav Bar */}
+        {/* Navbar Toggle Button */}
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
+        {/* Navbar Collapsible Content */}
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto">
+          <Nav className="ml-auto" fill>
             {/* Nav Links (Buttons) */}
             <Nav.Link className={styles.navLink} href="#link1">Button 1</Nav.Link>
             <Nav.Link className={styles.navLink} href="#link2">Button 2</Nav.Link>

@@ -36,13 +36,12 @@ export default function Home() {
   return (
     <>
       <main>
-      <div className="Container">
-        <div className="Row">
-          <div className="Col">
+      
+          
             <Header />
-          </div>
-        </div>
-      </div>
+          
+        
+      
 
         {/* <div className={styles.grid}>
         {state.user ? (

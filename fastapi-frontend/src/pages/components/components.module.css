@@ -1,15 +1,15 @@
 .header {
     background-color: #2b0446;
-    height: 320px;
     color: white;
     display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 400px;
 }
 .navLink {
     color: white;
     margin-left: 20px;
 }
 .logo {
-    margin-right: 100px;
+    margin-right: 150px;
 }
