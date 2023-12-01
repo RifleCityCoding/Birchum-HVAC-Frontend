@@ -1,10 +1,11 @@
 
 .header {
-    background-color: #a7dbfa;
+    background-color: #010a3a;
     color: white;
     display: flex;
     align-items: center;
-    height: 175px;
+    height: 165px;
+    
   }
   
  
@@ -14,7 +15,7 @@
     margin-right: 0;
     margin-left: 0;
     padding: 0%;
-    margin-top: 90px;
+    margin-top: 69px;
   }
   
   .logo {
@@ -22,7 +23,65 @@
     margin-left: 0;
   }
   .navLink {
-    color: #8952FD;
+    color: white;
     font-size: 24px;
     min-width: 200px;
+    transition: color 0.3s ease;
   }
+  
+  .navLink:hover {
+    color: #E2AD03; 
+  }
+  .footer {
+    background-color: #010a3a;
+    color: #8952FD;
+    padding: 20px 0;
+    justify-content: center;
+    display: flex;
+  }
+  
+  .footer_h5 {
+    color: #8952FD;
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  .homeText {
+    font-size: 108px;
+    grid-column: auto;
+    text-align: center;
+    color: #8952FD;
+    position: relative;
+    z-index: 2;
+  }
+  .emergency-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .emergency{
+        color: #000;
+		font-weight: bold;
+		font-size: 40px;
+		animation: blinkingText 2s infinite;
+        margin-right: 100px;
+	}
+	@keyframes blinkingText{
+		0%		{ color: #ffffff;}
+		25%		{ color: #ffffff;}
+		50%		{ color: #ef0a1a;}
+		75%		{ color: #ef0a1a;}
+		100%	{ color: #ffffff;}
+	}
+    .lostpw{
+        color: black;
+    }
+    /* .loginBtn{
+
+    }
+    .registerBtn {
+
+    } */
+    .loginBG {
+        background-color: #03BBD4;
+    }
+

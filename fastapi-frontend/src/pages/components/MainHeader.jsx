@@ -3,6 +3,8 @@ import { Navbar, Nav, Container } from "react-bootstrap";
 import styles from "./components.module.css";
 import Image from "next/image";
 
+
+
 const Header = () => {
   return (
     <Navbar className={styles.header} expand="lg">
@@ -35,6 +37,10 @@ const Header = () => {
           </Nav.Link>
         </Nav>
       </Navbar.Collapse>
+      <div className={styles['emergency-container']}>
+        <h1 className={styles.emergency}>Emergency Services</h1>
+        <h3 className={styles.emergency}>(800)555-0123</h3>
+      </div>
     </Navbar>
   );
 };
