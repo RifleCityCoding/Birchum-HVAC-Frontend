@@ -29,30 +29,29 @@
     transition: color 0.3s ease;
   }
   
-  .navLink:hover {
-    color: #E2AD03; 
+  .navLink:hover,
+  .navLink:focus {
+    color: #E2AD03;
+  }
+  
+  .navLink.active {
+    color: #E2AD03; /* Color for the active tab */
   }
   .footer {
     background-color: #010a3a;
-    color: #8952FD;
+    color: #ffffff;
     padding: 20px 0;
     justify-content: center;
     display: flex;
   }
   
   .footer_h5 {
-    color: #8952FD;
+    color: #ffffff;
     font-size: 18px;
     margin-bottom: 15px;
   }
-  .homeText {
-    font-size: 108px;
-    grid-column: auto;
-    text-align: center;
-    color: #8952FD;
-    position: relative;
-    z-index: 2;
-  }
+
+  
   .emergency-container {
     display: flex;
     flex-direction: column;
@@ -75,13 +74,48 @@
     .lostpw{
         color: black;
     }
-    /* .loginBtn{
-
+    .loginBtn{
+        background-color: #010a3a;
+        color: white;
+        transition: color 0.3s ease;
+    }
+    .loginBtn:hover {
+        background-color: #0020d4;
     }
     .registerBtn {
-
-    } */
+        color: white;
+        background-color: #010a3a;
+        transition: color 0.3s ease;
+        border: none;
+    }
+    .registerBtn:hover {
+        background-color: #c85f04;
+    }
     .loginBG {
         background-color: #03BBD4;
     }
-
+    .banner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #000;
+        width: 7in;
+        height: 2in;
+        background-color: #E2AD03;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        left: 0;
+        top: 20;
+      }
+.stackedText {
+    display: block;
+}
+.homeText {
+    font-size: 40px;
+    color: #ffffff;
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 8px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}

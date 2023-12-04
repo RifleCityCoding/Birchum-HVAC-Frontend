@@ -10,6 +10,7 @@ import styles from "./components/components.module.css";
 import { Josefin_Sans } from 'next/font/google'
 import Footer from './components/MainFooter';
 import LoginBox from './components/LoginBox';
+import BannerText from './components/BannerText';
 
 
 const josefin = Josefin_Sans({
@@ -91,9 +92,7 @@ export default function Home() {
           gridColumn: "1",
         }}
       >
-        <h2 className={styles.homeText}>
-          Quality HVAC Service, for competitive local prices!
-        </h2>
+        <BannerText />
       </div >
       {/* Content for the right half (if any) */}
       <div style={{
