@@ -9,8 +9,8 @@ import Header from "./components/MainHeader"
 import styles from "./components/components.module.css";
 import { Josefin_Sans } from 'next/font/google'
 import Footer from './components/MainFooter';
-import LoginBox from './components/LoginBox';
 import BannerText from './components/BannerText';
+import LoginPage from './components/LoginBoxv2';
 
 
 const josefin = Josefin_Sans({
@@ -54,7 +54,7 @@ export default function Home() {
         width: "100vw",
         height: "100vh",
         display: "grid",
-        gridTemplateColumns: "1fr 1fr", /* Two columns */
+        gridTemplateColumns: "1fr 1fr",
       }}
     >
       <div
@@ -103,7 +103,7 @@ export default function Home() {
           gridRow: "1",
           gridColumn: "2",
         }}>
-<LoginBox />
+<LoginPage />
       </div>
       
     </div>

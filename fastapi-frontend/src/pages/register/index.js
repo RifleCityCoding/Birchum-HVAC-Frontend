@@ -1,117 +1,72 @@
-import React, { useEffect, useState,} from "react";
-import AuthService from "../../services/auth.service";
-import { useRouter } from "next/navigation";
-import { useGlobalState } from "../../context/GlobalState";
-import styles from './register.module.css';
-import { jwtDecode } from "jwt-decode";
-import Link from 'next/link';
-//------------------------------------------------------------------------------------------------------------------------------
-function RegisterPage() {
-  const {state, dispatch} = useGlobalState();
-  const router = useRouter();
-  const [user, setUser] = useState({
-    password: "",
-    passwordConf: "",
-    email: "",
-    username: "",
-  });
-//------------------------------------------------------------------------------------------------------------------------------
-  const handleChange = (key, value) => {
-    setUser({
-      ...user,
-      [key]: value,
-    });
-  };
-//------------------------------------------------------------------------------------------------------------------------------
-  async function handleRegister(e) {
-    e.preventDefault();
-    try {
-      const resp = await AuthService.register(user);
-      
-      if (resp.data.access_token) {
-        //let data = jwtDecode(resp.access_token);
-        let data = jwtDecode(resp.data.access_token, { header: true });
-        await dispatch({
-            type: 'SET_USER',
-            payload: data,
-        });
-        console.log('Login success');
-        router.push('/');
-      } else {
-          console.log('Login failed');
-          dispatch({ type: 'LOGOUT_USER' });
-      }
-  
-    } catch (error) {
-      console.error('Registration failed:', error);
-    }
-  }
-//------------------------------------------------------------------------------------------------------------------------------
+import Footer from "../components/MainFooter";
+import Header from "../components/MainHeader";
+import RegisterPage from "../components/RegisterUser";
+import { Josefin_Sans } from 'next/font/google'
+import styles from "../components/components.module.css";
+
+const josefin = Josefin_Sans({
+  weight: '400',
+  subsets: ['latin']
+})
+
+export default function Register () {
+
+
   return (
-    <div>
-      <div className={styles.container}>
-        <h1>Register</h1>
-      <div className="flex">
-        <form className="mx-auto border-2 bg-mtgray" onSubmit={handleRegister}>
-          
-          <div className="flex justify-between m-2 items-center space-x-2">
-            <label htmlFor="email">Email:</label><br></br>
-            <input
-              className="border"
-              type="text"
-              id="email"
-              required
-              onChange={(e) => {
-                let olduser = user;
-                olduser.email = e.target.value;
-                olduser.username = e.target.value;
-                setUser(olduser);
+    <main className={josefin.className}>
+      <div className={styles.main}>
+        <Header />
+        <div
+          style={{
+            position: "relative",
+            width: "100vw",
+            height: "100vh",
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+          }}
+        >
+          <div
+            style={{
+              backgroundImage: `url("./HVACBackground.jpeg")`,
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+              backgroundPosition: "center center",
+              width: "100%",
+              height: "100%",
+              position: "absolute",
+              zIndex: "0",
+              gridRow: "1",
+              gridColumn: "1",
+            }}
+          ></div>
+          <div
+            style={{
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
+              width: "100%",
+              height: "100%",
+              position: "absolute",
+              zIndex: "2",
+              gridRow: "1",
+              gridColumn: "1",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <div
+              style={{
+                backgroundColor: "#fff",
+                padding: "20px",
+                borderRadius: "10px",
+                gridColumn: "2"
               }}
-            />
+            >
+              <RegisterPage />
+            </div>
           </div>
-          <div className="flex justify-between m-2 items-center space-x-2">
-            <label htmlFor="password">Password:</label><br></br>
-            <input
-              className="border"
-              type="password"
-              id="password"
-              required
-              onChange={(e) => handleChange("password", e.target.value)}
-            />
-          </div>
-          <div className="flex justify-between m-2 items-center space-x-2">
-            <label htmlFor="passwordConf">Confirm Password:</label><br></br>
-            <input
-              className="border"
-              type="password"
-              id="passwordConf"
-              required
-              onChange={(e) => handleChange("passwordConf", e.target.value)}
-            />
-          </div>
-          <div className="flex">
-            <input
-              type="submit"
-              value="Register!"
-              className={styles.button}
-              disabled={
-                user.password &&
-                user.password.length >= 8 &&
-                user.password === user.passwordConf &&
-                user.email
-                  ? false
-                  : true
-              }
-            />
-          </div>
-        </form>
-        <Link href="/login" className={styles.link}>
-            Login Here
-        </Link>
+        </div>
+        <Footer />
       </div>
-    </div>
-    </div>
+    </main>
   );
 }
-
-export default RegisterPage;
