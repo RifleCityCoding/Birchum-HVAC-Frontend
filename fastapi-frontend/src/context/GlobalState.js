@@ -1,6 +1,6 @@
 import { createContext, useReducer, useContext } from 'react';
 // Define the initial state
-const initialState = {
+const InitialState = {
   user: null,
 };
 // Create a context object
@@ -18,7 +18,7 @@ function reducer(state, action) {
 
 // Provider component to wrap the app
 export function GlobalStateProvider({ children }) {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, InitialState);
   return (
     <GlobalStateContext.Provider value={{ state, dispatch }}>
       {children}
