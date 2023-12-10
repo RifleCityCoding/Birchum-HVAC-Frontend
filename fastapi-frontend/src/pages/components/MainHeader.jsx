@@ -56,7 +56,7 @@ const Header = () => {
           <Nav.Link className={styles.navLink} href="/Calendar">
             Schedule
           </Nav.Link>
-          <Nav.Link className={styles.navLink} href="#link2">
+          <Nav.Link className={styles.navLink} href="/Contact">
             Contact
           </Nav.Link>
           <Nav.Link className={styles.navLink} href="/About">
