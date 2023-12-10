@@ -40,6 +40,7 @@ const MyCalendar = () => {
   const handleSelect = ({ start }) => {
     setShowModal(true);
     setSelectedDate(moment(start).startOf("day").toDate());
+    setSelectedEvent(null);
   };
 
   const handleEventDelete = async () => {
@@ -71,45 +72,7 @@ const MyCalendar = () => {
     }
   };
   
-  const handleBlockSelection = async (startHour, endHour) => {
-    if (!fullName || !phoneNumber) {
-      alert("Please fill in your name and phone number");
-      return;
-    }
-
-    setShowModal(false);
-
-    const newEvent = {
-      id: 0,
-      start_time: startHour,
-      end_time: endHour,
-      full_name: fullName,
-      phone_number: phoneNumber,
-    };
-
-    try {
-      const response = await fetch(
-        "http://127.0.0.1:8000/api/v1/appointments",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(newEvent),
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error("Failed to create scheduled block");
-      }
-      setEvents([...events, newEvent]);
-    } catch (error) {
-      console.error("Error creating scheduled block:", error);
-    } finally {
-      setFullName("");
-      setPhoneNumber("");
-    }
-  };
+  
 
   const renderHourBlocks = () => {
     const blocks = [];
@@ -133,6 +96,49 @@ const MyCalendar = () => {
     }
     return blocks;
   };
+
+  const handleBlockSelection = async (startHour, endHour) => {
+    console.log("Start Hour:", startHour);
+    console.log("End Hour:", endHour);
+    if (!fullName || !phoneNumber) {
+      alert("Please fill in your name and phone number");
+      return;
+    }
+
+    setShowModal(false);
+
+    const newEvent = {
+      id: 0,
+      start_time: moment(startHour).toDate(),
+      end_time: moment(endHour).toDate(),
+      full_name: fullName,
+      phone_number: phoneNumber,
+    };
+
+    try {
+      const response = await fetch(
+        "http://127.0.0.1:8000/api/v1/appointments",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newEvent),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to create scheduled block");
+      }
+      setEvents(prevEvents => [...prevEvents, newEvent]);
+    } catch (error) {
+      console.error("Error creating scheduled block:", error);
+    } finally {
+      setFullName("");
+      setPhoneNumber("");
+    }
+  };
+
   const CustomEvent = ({ event }) => {
     return (
       <div>
@@ -219,10 +225,11 @@ const MyCalendar = () => {
             </p>
             <p>
               <strong>Start:</strong>{" "}
-              {moment(selectedEvent.start).format("LLL")}
+              {moment(selectedEvent.start_time).format("LLL")}
             </p>
             <p>
-              <strong>End:</strong> {moment(selectedEvent.end).format("LLL")}
+              <strong>End:</strong>{" "}
+              {moment(selectedEvent.end_time).format("LLL")}
             </p>
             <p>
               <strong>Phone</strong> {selectedEvent.phone}
