@@ -13,7 +13,7 @@ const MyCalendar = () => {
   const [fullName, setFullName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [selectedEvent, setSelectedEvent] = useState(null);
-  const [key, setKey] = useState(0);
+  const [key, setKey] = useState(0)
 
   const fetchEvents = async () => {
     try {

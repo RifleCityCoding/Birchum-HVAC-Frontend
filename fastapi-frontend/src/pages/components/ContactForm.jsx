@@ -57,7 +57,7 @@ const ContactForm = () => {
         ) : (
           <Container className="d-flex justify-content-center align-items-center">
             <Form style={{ width: "80%" }} onSubmit={handleSubmit}>
-              <Form.Group controlId="Name">
+              <Form.Group controlId="name">
                 <Form.Label>Name</Form.Label>
                 <Form.Control
                   type="text"
@@ -67,7 +67,7 @@ const ContactForm = () => {
                 />
               </Form.Group>
 
-              <Form.Group controlId="Email">
+              <Form.Group controlId="email">
                 <Form.Label>Email</Form.Label>
                 <Form.Control
                   type="email"
@@ -77,7 +77,7 @@ const ContactForm = () => {
                 />
               </Form.Group>
 
-              <Form.Group controlId="Message">
+              <Form.Group controlId="message">
                 <Form.Label>Message</Form.Label>
                 <Form.Control
                   as="textarea"
