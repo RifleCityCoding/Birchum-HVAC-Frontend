@@ -11,6 +11,7 @@ import { Josefin_Sans } from "next/font/google";
 import Footer from "../components/MainFooter";
 import BannerText from "../components/BannerText";
 import LoginPage from "../components/LoginBoxv2";
+import Image from "next/image";
 
 const josefin = Josefin_Sans({
   weight: "400",
@@ -33,7 +34,7 @@ export default function AboutUs() {
       }
     };
     getUserFromLocalStorage();
-  }, []);
+  }, [dispatch]);
 
   const handleLogout = () => {
     authService.logout();
@@ -63,15 +64,12 @@ export default function AboutUs() {
             }}
           >
             <div style={{ marginBottom: "20px" }}>
-              <img
-                src="./JonProfile.jpg"
+              <Image
+                src="/JonProfile.jpg"
                 alt="Owner 1"
-                style={{
-                  width: "300px",
-                  height: "300px",
-                  borderRadius: "50%",
-                  objectFit: "cover",
-                }}
+                width={300}
+                height={300}
+                style={{ borderRadius: "50%", objectFit: "cover", layout: "responsive" }}
               />
             </div>
             <div
@@ -80,29 +78,27 @@ export default function AboutUs() {
                 color: "black",
                 fontSize: "24px",
                 padding: "0 0.25in",
-                marginBottom: '60px',
+                marginBottom: "60px",
               }}
             >
               <h2>Jon Birchum</h2>
-              
-                <p>
-                  With 15 years of dedicated experience in the HVAC industry,
-                  this professional has cultivated a reputation for excellence
-                  in delivering top-tier heating, ventilation, and air
-                  conditioning solutions. Having contributed expertise to
-                  various projects, their journey has been marked by a
-                  commitment to precision and customer satisfaction. Their
-                  proficiency spans across residential and commercial sectors,
-                  reflecting adaptability and a keen understanding of diverse
-                  HVAC needs. Embracing advancements in technology, they ensure
-                  cutting-edge solutions that prioritize efficiency and comfort
-                  in every endeavor. Backed by a decade and a half of expertise,
-                  their mission remains steadfast: to provide tailored, reliable
-                  HVAC services that redefine comfort and elevate industry
-                  standards, ensuring optimal climate control for every space
-                  they touch.
-                </p>
-              
+
+              <p>
+                With 15 years of dedicated experience in the HVAC industry, this
+                professional has cultivated a reputation for excellence in
+                delivering top-tier heating, ventilation, and air conditioning
+                solutions. Having contributed expertise to various projects,
+                their journey has been marked by a commitment to precision and
+                customer satisfaction. Their proficiency spans across
+                residential and commercial sectors, reflecting adaptability and
+                a keen understanding of diverse HVAC needs. Embracing
+                advancements in technology, they ensure cutting-edge solutions
+                that prioritize efficiency and comfort in every endeavor. Backed
+                by a decade and a half of expertise, their mission remains
+                steadfast: to provide tailored, reliable HVAC services that
+                redefine comfort and elevate industry standards, ensuring
+                optimal climate control for every space they touch.
+              </p>
             </div>
           </div>
           {/* Divider */}
@@ -125,15 +121,12 @@ export default function AboutUs() {
             }}
           >
             <div style={{ marginBottom: "20px" }}>
-              <img
-                src="./RickProfile.jpg"
-                alt="Owner 2"
-                style={{
-                  width: "300px",
-                  height: "300px",
-                  borderRadius: "50%",
-                  objectFit: "cover",
-                }}
+            <Image
+                src="/RickProfile.jpg"
+                alt="Owner 1"
+                width={300}
+                height={300}
+                style={{ borderRadius: "50%", objectFit: "cover", layout: "responsive" }}
               />
             </div>
             <div

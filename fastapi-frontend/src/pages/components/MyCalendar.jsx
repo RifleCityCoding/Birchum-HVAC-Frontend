@@ -13,7 +13,7 @@ const MyCalendar = () => {
   const [fullName, setFullName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [selectedEvent, setSelectedEvent] = useState(null);
-  const [key, setKey] = useState(0);
+  const [key, setKey] = useState(0)
 
   const fetchEvents = async () => {
     try {
@@ -101,7 +101,7 @@ const MyCalendar = () => {
     console.log("Start Hour:", startHour);
     console.log("End Hour:", endHour);
     if (!fullName || !phoneNumber) {
-      alert("Please fill in your name and phone number");
+      alert("Please fill in your name and phone number" );
       return;
     }
 

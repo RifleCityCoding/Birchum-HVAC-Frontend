@@ -50,5 +50,6 @@ import {
   
     
   }
+  const dataServiceInstance = new DataService();
   
-  export default new DataService();
+  export default dataServiceInstance;
