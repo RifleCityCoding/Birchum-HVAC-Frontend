@@ -32,7 +32,7 @@ export default function Home() {
       }
     };
     getUserFromLocalStorage();
-  }, []);
+  }, [dispatch]);
 
   const handleLogout = () => {
     authService.logout();
