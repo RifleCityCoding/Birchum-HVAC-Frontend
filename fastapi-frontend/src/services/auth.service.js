@@ -85,4 +85,4 @@ import {
   
   const authServiceInstance = new AuthService();
 
-  export default authServiceInstance;
+  export default  authServiceInstance;
