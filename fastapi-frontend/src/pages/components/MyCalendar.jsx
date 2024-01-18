@@ -101,7 +101,7 @@ const MyCalendar = () => {
     console.log("Start Hour:", startHour);
     console.log("End Hour:", endHour);
     if (!fullName || !phoneNumber) {
-      alert("Please fill in your name and phone number");
+      alert("Please fill in your name and phone number" );
       return;
     }
 

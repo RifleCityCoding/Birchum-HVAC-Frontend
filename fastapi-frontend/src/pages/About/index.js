@@ -11,6 +11,7 @@ import { Josefin_Sans } from "next/font/google";
 import Footer from "../components/MainFooter";
 import BannerText from "../components/BannerText";
 import LoginPage from "../components/LoginBoxv2";
+import Image from 'next/image';
 
 const josefin = Josefin_Sans({
   weight: "400",
@@ -33,7 +34,7 @@ export default function AboutUs() {
       }
     };
     getUserFromLocalStorage();
-  }, []);
+  }, [dispatch]);
 
   const handleLogout = () => {
     authService.logout();
@@ -63,15 +64,14 @@ export default function AboutUs() {
             }}
           >
             <div style={{ marginBottom: "20px" }}>
-              <img
-                src="./JonProfile.jpg"
+              <Image
+                src="/JonProfile.jpg"
                 alt="Owner 1"
-                style={{
-                  width: "300px",
-                  height: "300px",
-                  borderRadius: "50%",
-                  objectFit: "cover",
-                }}
+                width={300}
+                height={300}
+                layout="responsive"
+                objectFit="cover"
+                style={{ borderRadius: "50%" }}
               />
             </div>
             <div
